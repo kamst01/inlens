@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <pattern id="paper-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#304b59" stroke-opacity=".16" />
+    </pattern>
+    <filter id="rough"><feTurbulence baseFrequency=".7" numOctaves="2" seed="8" result="noise"/><feBlend in="SourceGraphic" in2="noise" mode="multiply" /></filter>
+  </defs>
+  <rect width="600" height="400" fill="#e8dfc5" />
+  <rect width="600" height="400" fill="url(#paper-grid)" />
+  <rect x="34" y="32" width="532" height="336" fill="none" stroke="#151a1d" stroke-width="8" />
+  <path d="M62 92h176M62 118h118M360 66h160M395 92h125" stroke="#151a1d" stroke-width="9" />
+  <g transform="translate(78 146) rotate(-7)">
+    <rect width="176" height="168" fill="#111719" />
+    <circle cx="88" cy="72" r="47" fill="#d7d4c9" />
+    <path d="M44 150q44-68 88 0" fill="#d7d4c9" />
+    <path d="M48 59h80M55 89h66" stroke="#111719" stroke-width="8" />
+  </g>
+  <g fill="none" stroke="#c71f37" stroke-width="8">
+    <circle cx="405" cy="225" r="76" />
+    <path d="m344 162 122 126M466 162 344 288" />
+    <path d="M235 229c80-105 122-87 167-45" stroke-dasharray="14 9" />
+  </g>
+  <path d="m287 129 44 72-84 6Z" fill="#f0b323" stroke="#151a1d" stroke-width="7" />
+  <g fill="#151a1d" font-family="monospace" font-size="18" font-weight="700">
+    <text x="62" y="72">CASE 08-14 / EYES ONLY</text>
+    <text x="320" y="343">SUBJECT: GEOMETRY?</text>
+    <text x="405" y="220" text-anchor="middle">MATCH</text>
+    <text x="405" y="244" text-anchor="middle">87%</text>
+  </g>
+  <g filter="url(#rough)" opacity=".18"><rect width="600" height="400" /></g>
+</svg>

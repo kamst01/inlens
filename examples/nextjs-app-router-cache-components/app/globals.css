@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    margin: 0;
+    color: #25261f;
+    background:
+      linear-gradient(rgb(37 38 31 / 3%) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(37 38 31 / 3%) 1px, transparent 1px), #f5f1e8;
+    background-size: 24px 24px;
+    font-family: var(--font-sans);
+  }
+}
+
+@utility inlens-follow {
+  transform: translate3d(var(--inlens-x, 0px), var(--inlens-y, 0px), 0);
+  will-change: transform;
+}
+
+@utility inlens-magnified {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--inlens-root-width, 100%);
+  height: var(--inlens-root-height, 100%);
+  transform: translate3d(var(--inlens-x, 0px), var(--inlens-y, 0px), 0) scale(var(--inlens-zoom, 1));
+  transform-origin: top left;
+  will-change: transform;
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error"
+  },
+  "plugins": ["typescript"],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.next/**",
+    "**/.next-playwright/**",
+    "coverage/**",
+    "playwright-report/**",
+    "test-results/**"
+  ],
+  "rules": {
+    "typescript/no-explicit-any": "error"
+  },
+  "overrides": [
+    {
+      "files": ["packages/core/src/**/*.ts", "packages/core/src/**/*.tsx"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": ["react", "react-dom", "next"],
+            "patterns": ["react/*", "react-dom/*", "next/*"]
+          }
+        ]
+      }
+    }
+  ]
+}

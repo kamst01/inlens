@@ -1,0 +1,51 @@
+{
+  "name": "@inlens/core",
+  "version": "0.0.0",
+  "description": "Framework-independent image magnifier controller and geometry",
+  "keywords": [
+    "geometry",
+    "image-magnifier",
+    "magnifier",
+    "zoom"
+  ],
+  "homepage": "https://github.com/kamst01/inlens#readme",
+  "bugs": {
+    "url": "https://github.com/kamst01/inlens/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamst01/inlens.git",
+    "directory": "packages/core"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./internal/geometry": {
+      "types": "./dist/geometry.d.mts",
+      "import": "./dist/internal/geometry.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rolldown -c rolldown.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --config ../../vitest.config.ts ../../packages/core/src/__tests__"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

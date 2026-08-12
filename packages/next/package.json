@@ -1,0 +1,56 @@
+{
+  "name": "@inlens/next",
+  "version": "0.0.0",
+  "description": "RSC-safe Next.js entry for InLens",
+  "keywords": [
+    "image-magnifier",
+    "magnifier",
+    "nextjs",
+    "react",
+    "react-server-components",
+    "zoom"
+  ],
+  "homepage": "https://github.com/kamst01/inlens#readme",
+  "bugs": {
+    "url": "https://github.com/kamst01/inlens/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamst01/inlens.git",
+    "directory": "packages/next"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rolldown -c rolldown.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@inlens/react": "0.0.0"
+  },
+  "peerDependencies": {
+    "next": ">=15.0.0 <17.0.0",
+    "react": ">=18.3.0 <20.0.0",
+    "react-dom": ">=18.3.0 <20.0.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

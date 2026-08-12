@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="void" cx="50%" cy="45%" r="70%">
+      <stop stop-color="#173e52" />
+      <stop offset=".58" stop-color="#07131c" />
+      <stop offset="1" stop-color="#020507" />
+    </radialGradient>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 1h8" stroke="#85fff2" stroke-opacity=".13" />
+    </pattern>
+  </defs>
+  <rect width="600" height="600" fill="url(#void)" />
+  <rect width="600" height="600" fill="url(#scan)" />
+  <g fill="none" stroke="#63f5e3">
+    <circle cx="300" cy="286" r="210" stroke-opacity=".18" stroke-width="3" />
+    <circle cx="300" cy="286" r="154" stroke-opacity=".34" stroke-width="4" stroke-dasharray="10 14" />
+    <circle cx="300" cy="286" r="102" stroke-width="6" />
+  </g>
+  <path d="M66 300h75l25-68 38 147 47-201 43 235 38-155 34 82 36-103 39 63h93" fill="none" stroke="#f6fa70" stroke-linecap="round" stroke-linejoin="round" stroke-width="9" />
+  <path d="M300 184c56 0 92 47 92 104s-36 104-92 104-92-47-92-104 36-104 92-104Z" fill="#05141a" stroke="#ff5ead" stroke-width="8" />
+  <path d="M242 280q58-72 116 0-58 72-116 0Z" fill="#63f5e3" />
+  <circle cx="300" cy="280" r="28" fill="#06121a" />
+  <g fill="#ff5ead">
+    <circle cx="115" cy="120" r="8" /><circle cx="488" cy="135" r="12" /><circle cx="476" cy="459" r="7" />
+  </g>
+  <text x="300" y="530" text-anchor="middle" fill="#63f5e3" font-family="monospace" font-size="24" letter-spacing="8">UNKNOWN SIGNAL</text>
+  <text x="300" y="562" text-anchor="middle" fill="#f6fa70" font-family="monospace" font-size="17">141.12 MHz / HOLD TO RESOLVE</text>
+</svg>

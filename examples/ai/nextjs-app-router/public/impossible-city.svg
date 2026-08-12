@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="city-sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7d4c2" /><stop offset="1" stop-color="#86d5cb" /></linearGradient>
+    <pattern id="city-dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#263456" fill-opacity=".2" /></pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#city-sky)" /><rect width="800" height="600" fill="url(#city-dots)" />
+  <path d="M0 398c130-94 231 40 355-45s242-25 445-138v385H0Z" fill="#326c81" />
+  <path d="M0 444c140-84 254 65 396-32s265-15 404-106" fill="none" stroke="#f2ca52" stroke-width="22" />
+  <g stroke="#263456" stroke-width="8">
+    <path d="m84 349 78-170 78 170Z" fill="#ed5d71" /><path d="m119 318 43-92 43 92Z" fill="#f7d85a" />
+    <rect x="275" y="153" width="110" height="205" fill="#7855ad" /><path d="m275 153 55-100 55 100Z" fill="#f7d85a" />
+    <path d="M470 111h150v252H470Z" fill="#f6eee0" /><path d="m470 111 75 92 75-92" fill="#ed5d71" />
+    <path d="M667 88v275h92L713 88Z" fill="#50b9ab" />
+  </g>
+  <g fill="#263456">
+    <rect x="307" y="188" width="22" height="32" /><rect x="346" y="188" width="22" height="32" />
+    <rect x="307" y="244" width="22" height="32" /><rect x="346" y="244" width="22" height="32" />
+    <circle cx="510" cy="254" r="16" /><circle cx="580" cy="254" r="16" />
+  </g>
+  <path d="M38 89c113 41 171-86 276-34s191 43 291-3 149-5 177 29" fill="none" stroke="#fff7e6" stroke-width="15" stroke-dasharray="22 14" />
+  <g fill="#263456" font-family="monospace" font-size="18" font-weight="700">
+    <text x="35" y="565">THE RIVER FLOWS UP ON TUESDAYS</text>
+    <text x="585" y="535" transform="rotate(-10 585 535)">YOU ARE NOT HERE</text>
+  </g>
+</svg>

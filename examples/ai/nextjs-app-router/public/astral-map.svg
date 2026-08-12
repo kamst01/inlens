@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <radialGradient id="night" cx="48%" cy="44%" r="70%">
+      <stop stop-color="#392166" /><stop offset=".58" stop-color="#111638" /><stop offset="1" stop-color="#050713" />
+    </radialGradient>
+    <pattern id="stars" width="72" height="58" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="12" r="2" fill="#fff3ac" /><circle cx="52" cy="39" r="1.5" fill="#88d8ff" />
+    </pattern>
+  </defs>
+  <rect width="600" height="600" fill="url(#night)" />
+  <rect width="600" height="600" fill="url(#stars)" />
+  <g transform="translate(300 300)" fill="none" stroke="#f4cf65">
+    <circle r="238" stroke-width="3" /><circle r="192" stroke-opacity=".62" stroke-width="2" />
+    <ellipse rx="248" ry="102" transform="rotate(-18)" stroke-width="4" />
+    <ellipse rx="122" ry="244" transform="rotate(39)" stroke-opacity=".6" stroke-width="2" />
+    <path d="M-220 0h440M0-220v440" stroke-opacity=".22" />
+  </g>
+  <circle cx="300" cy="300" r="68" fill="#ed5d89" stroke="#f9dd79" stroke-width="10" />
+  <circle cx="300" cy="300" r="31" fill="#19143b" />
+  <circle cx="468" cy="158" r="43" fill="#86d9e9" stroke="#f9dd79" stroke-width="7" />
+  <circle cx="153" cy="405" r="29" fill="#ffad5b" />
+  <path d="m96 170 12 25 27 4-20 19 5 27-24-13-24 13 5-27-20-19 27-4Z" fill="#f8eeaf" />
+  <g fill="#f8eeaf" font-family="serif" font-size="16" letter-spacing="4">
+    <text x="300" y="44" text-anchor="middle">CATALOGUE OF UNRELIABLE MOONS</text>
+    <text x="300" y="566" text-anchor="middle">EPOCH 2091 · OBSERVATORY VII</text>
+  </g>
+</svg>

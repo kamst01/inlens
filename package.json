@@ -1,0 +1,66 @@
+{
+  "name": "inlens",
+  "version": "0.0.0",
+  "private": true,
+  "homepage": "https://github.com/kamst01/inlens#readme",
+  "bugs": {
+    "url": "https://github.com/kamst01/inlens/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamst01/inlens.git"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*",
+    "examples/ai/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:core && npm run build:react && npm run build:next",
+    "build:core": "npm run build -w @inlens/core",
+    "build:react": "npm run build -w @inlens/react",
+    "build:next": "npm run build -w @inlens/next",
+    "build:examples": "npm run build -w @inlens/example-react-vite && npm run build -w @inlens/example-nextjs && npm run build -w nextjs-app-router-ecommerce && npm run build -w nextjs-app-router-data-magnify && npm run build -w nextjs-app-router-cache-components",
+    "typecheck": "npm run build && npm run typecheck:workspaces",
+    "typecheck:workspaces": "npm run typecheck --workspaces --if-present",
+    "lint": "oxlint --deny-warnings --report-unused-disable-directives .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:packed": "node tests/package-consumers/verify.mjs",
+    "test:boundaries": "node tests/package-boundaries.mjs",
+    "test:size": "node tests/client-bundle-size.mjs",
+    "changeset": "changeset",
+    "changeset:status": "changeset status",
+    "version-packages": "changeset version && npm install --package-lock-only --ignore-scripts",
+    "release": "npm run build && npm run test:boundaries && changeset publish",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm test && npm run test:boundaries && npm run test:size && npm run build:examples"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.0-next.10",
+    "@playwright/test": "1.61.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.10",
+    "jsdom": "29.1.1",
+    "oxfmt": "0.61.0",
+    "oxlint": "1.76.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "rolldown": "1.2.1",
+    "rolldown-plugin-dts": "0.27.14",
+    "typescript": "6.0.3",
+    "vite": "8.1.5",
+    "vitest": "4.1.10"
+  },
+  "engines": {
+    "node": "^22.18.0 || ^24.11.0 || >=26.0.0",
+    "npm": ">=10.9.0"
+  }
+}

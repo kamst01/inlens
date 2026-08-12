@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420">
+  <defs>
+    <linearGradient id="bio-bg" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#10163b" /><stop offset=".48" stop-color="#22205f" /><stop offset="1" stop-color="#071b2d" />
+    </linearGradient>
+    <pattern id="bio-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#c8ff36" stroke-opacity=".12" /></pattern>
+  </defs>
+  <rect width="1000" height="420" fill="url(#bio-bg)" /><rect width="1000" height="420" fill="url(#bio-grid)" />
+  <g fill="none" stroke="#c8ff36" stroke-width="5">
+    <path d="M0 210c42-80 85 80 127 0s85 80 127 0 85 80 127 0 85 80 127 0 85 80 127 0 85 80 127 0 85 80 127 0 85 80 127 0" />
+    <circle cx="150" cy="125" r="72" /><circle cx="150" cy="125" r="28" />
+    <circle cx="788" cy="286" r="82" stroke-dasharray="13 9" /><circle cx="788" cy="286" r="38" />
+  </g>
+  <g fill="#ff4b68" stroke="#ffb148" stroke-width="5">
+    <path d="m316 83 38 24 42-15 17 42 43 13-12 44 27 36-35 29-1 45-45 3-29 35-36-27-44 12-13-43-42-17 15-42-24-38 37-26 7-45 45 1Z" />
+    <circle cx="598" cy="102" r="53" /><circle cx="598" cy="102" r="18" fill="#11183d" />
+  </g>
+  <g fill="#8ce8ff">
+    <circle cx="54" cy="342" r="14" /><circle cx="91" cy="318" r="7" /><circle cx="905" cy="88" r="21" /><circle cx="947" cy="119" r="9" />
+  </g>
+  <g fill="#eaf4cf" font-family="monospace" font-size="18">
+    <text x="30" y="45">SAMPLE // LIMINAL SPORE 07-A</text>
+    <text x="716" y="45">DO NOT LICK THE SLIDE</text>
+    <text x="35" y="392">████ 07 441 2097</text>
+  </g>
+</svg>
