@@ -1,6 +1,6 @@
 {
   "name": "@inlens/core",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Framework-independent image magnifier controller and geometry",
   "keywords": [
     "geometry",
