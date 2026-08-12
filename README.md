@@ -241,13 +241,31 @@ parts, responsive viewport remeasurement, and direct Server Component compositio
 shape, clip, transform, and idle-state presentation in these galleries comes from application CSS.
 
 ```sh
-npm run check       # lint, types, unit tests, packages, boundaries, examples
-npm run test:e2e    # React Vite and Next.js browser projects
-npm run test:packed # pack, inspect, install, and build clean consumers
+npm run check          # publishable-package lint, types, unit, boundary, and size checks
+npm run test:browser   # mount the React package source directly in real Chromium
 ```
 
-Packed-package validation rejects CSS files and builds clean Vite and App Router consumers from the real
-tarballs. Pass `-- --manager pnpm`, `yarn`, or `bun` to exercise another installed package manager.
+Package CI never builds the example applications. Vitest covers Core, React, and the RSC-neutral Next.js
+entry directly; Vitest Browser Mode uses Playwright to mount the React package source in Chromium without
+a fixture application or web server. The example applications remain manually runnable demos and have no
+dedicated CI, test, lint, or formatting workflow.
+
+## AI agent skill
+
+Install the repository's `inlens` skill to give Codex, Claude Code, Cursor, and other compatible coding
+agents the current compound API, RSC boundary rules, CSS output contract, accessibility guidance, and
+implementation checklist:
+
+```sh
+npx skills add kamst01/inlens --skill inlens
+```
+
+Add `--global` to make it available across projects. The skill follows the open Agent Skills format and
+can also be used without installation:
+
+```sh
+npx skills use kamst01/inlens@inlens
+```
 
 ## Releasing
 

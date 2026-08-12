@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   test:
-    name: Test
+    name: Tests
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -29,16 +29,28 @@ jobs:
           cache: npm
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --include-workspace-root --workspace @inlens/core --workspace @inlens/react --workspace @inlens/next
 
-      - name: Run Repository Checks
-        run: npm run check
+      - name: Lint Package and Test Code
+        run: npm run lint:packages
+
+      - name: Check Package and Test Formatting
+        run: npm run format:check:packages
+
+      - name: Build and Typecheck Packages
+        run: npm run typecheck
+
+      - name: Run Unit Tests
+        run: npm test
+
+      - name: Test Package Boundaries
+        run: npm run test:boundaries
+
+      - name: Test Client Bundle Size
+        run: npm run test:size
 
       - name: Install Playwright
         run: npx playwright install --with-deps chromium
 
-      - name: Run Browser Tests
-        run: npm run test:e2e
-
-      - name: Test Packed Packages
-        run: npm run test:packed
+      - name: Run Browser Component Tests
+        run: npm run test:browser

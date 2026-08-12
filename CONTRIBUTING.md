@@ -13,7 +13,7 @@ Complete every item before merging the initial Version Packages pull request:
    workflow exposes it only to the Changesets action as `NODE_AUTH_TOKEN`.
 5. Confirm that the `@inlens` npm scope grants the publishing account permission to create
    `@inlens/core`, `@inlens/react`, and `@inlens/next`.
-6. Protect `main`: require pull requests, resolved conversations, an up-to-date branch, and the `Test`
+6. Protect `main`: require pull requests, resolved conversations, an up-to-date branch, and the `Tests`
    status check; disable force pushes and branch deletion.
 
 The packages intentionally begin at `0.0.0`. The committed initial minor changeset makes the first
