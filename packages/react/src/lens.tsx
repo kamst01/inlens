@@ -23,6 +23,6 @@ import type { LensProps } from "./types/props";
  *
  * @see {@link LensProps}
  */
-export function Lens({ children, as = "div", className, style }: LensProps): ReactElement {
-  return createElement(as, { className, style, "data-inlens-slot": "lens" }, children);
+export function Lens({ children, as = "div", ...nativeProps }: LensProps): ReactElement {
+  return createElement(as, { ...nativeProps, "data-inlens-slot": "lens" }, children);
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { createElement, useEffect, useRef, useState } from "react";
-import type { CSSProperties, ReactElement, ReactNode } from "react";
+import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 import { createMagnifierController } from "@inlens/core";
 import type { CursorPct, MagnifierController } from "@inlens/core";
 import {
@@ -16,13 +16,11 @@ const VIEWPORT_SELECTOR = '[data-inlens-slot="lens"], [data-inlens-slot="panel"]
 
 type RootElement = "div" | "figure";
 
-interface RuntimeProps {
+interface RuntimeProps extends HTMLAttributes<HTMLElement> {
   zoom: number;
   disabled: boolean;
   as: RootElement;
   children: ReactNode;
-  className?: string | undefined;
-  style?: CSSProperties | undefined;
 }
 
 interface Size {
@@ -99,8 +97,7 @@ export function Runtime({
   disabled,
   as,
   children,
-  className,
-  style,
+  ...nativeProps
 }: RuntimeProps): ReactElement {
   const rootRef = useRef<HTMLElement | null>(null);
   const cursorRef = useRef<CursorPct>({ x: 0.5, y: 0.5 });
@@ -332,9 +329,8 @@ export function Runtime({
   return createElement(
     as,
     {
+      ...nativeProps,
       ref: rootRef,
-      className,
-      style,
       "data-inlens-slot": "root",
       "data-inlens-state": "idle",
     },

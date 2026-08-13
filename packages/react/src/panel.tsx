@@ -25,6 +25,6 @@ import type { PanelProps } from "./types/props";
  *
  * @see {@link PanelProps}
  */
-export function Panel({ children, as = "div", className, style }: PanelProps): ReactElement {
-  return createElement(as, { className, style, "data-inlens-slot": "panel" }, children);
+export function Panel({ children, as = "div", ...nativeProps }: PanelProps): ReactElement {
+  return createElement(as, { ...nativeProps, "data-inlens-slot": "panel" }, children);
 }

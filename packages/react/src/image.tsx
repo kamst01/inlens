@@ -20,12 +20,11 @@ import type { ImageProps } from "./types/props";
  *
  * @see {@link ImageProps}
  */
-export function Image({ children, as = "div", className, style }: ImageProps): ReactElement {
+export function Image({ children, as = "div", ...nativeProps }: ImageProps): ReactElement {
   return createElement(
     as,
     {
-      className,
-      style,
+      ...nativeProps,
       "data-inlens-slot": "image",
     },
     children,

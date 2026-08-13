@@ -24,6 +24,6 @@ import type { TrackerProps } from "./types/props";
  *
  * @see {@link TrackerProps}
  */
-export function Tracker({ children, as = "div", className, style }: TrackerProps): ReactElement {
-  return createElement(as, { className, style, "data-inlens-slot": "tracker" }, children);
+export function Tracker({ children, as = "div", ...nativeProps }: TrackerProps): ReactElement {
+  return createElement(as, { ...nativeProps, "data-inlens-slot": "tracker" }, children);
 }

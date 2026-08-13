@@ -1,13 +1,14 @@
-import type { CSSProperties, ReactElement, ReactNode } from "react";
+import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 
 /**
  * Props for {@link Root}, the measured source surface and behavior owner.
  *
  * @remarks
  * CSS defines the Root's dimensions. InLens measures its rendered border box and publishes the
- * result as read-only custom properties without applying layout or presentation styles.
+ * result as read-only custom properties without applying layout or presentation styles. All native
+ * HTML attributes and event handlers are forwarded to the wrapper.
  */
-export interface RootProps {
+export interface RootProps extends HTMLAttributes<HTMLElement> {
   /**
    * The finite magnification factor, greater than or equal to `1`.
    *
@@ -34,14 +35,6 @@ export interface RootProps {
    * A Root should normally contain exactly one {@link Image}.
    */
   children: ReactNode;
-  /** A consumer-owned class name passed unchanged to the wrapper. */
-  className?: string;
-  /**
-   * Consumer-owned inline styles passed to the wrapper.
-   *
-   * The `--inlens-*` namespace is reserved for InLens's read-only geometry outputs.
-   */
-  style?: CSSProperties;
 }
 
 /**
@@ -49,9 +42,9 @@ export interface RootProps {
  *
  * @remarks
  * InLens renders the child unchanged: it does not clone it, inspect its dimensions, or alter
- * its props.
+ * its props. All native HTML attributes and event handlers are forwarded to the wrapper.
  */
-export interface ImageProps {
+export interface ImageProps extends HTMLAttributes<HTMLElement> {
   /** Exactly one consumer-owned source element, rendered without inspection or cloning. */
   children: ReactElement;
   /**
@@ -60,10 +53,6 @@ export interface ImageProps {
    * @defaultValue `"div"`
    */
   as?: "div" | "span";
-  /** A consumer-owned class name passed unchanged to the wrapper. */
-  className?: string;
-  /** Consumer-owned inline styles passed unchanged to the wrapper. */
-  style?: CSSProperties;
 }
 
 /**
@@ -71,9 +60,10 @@ export interface ImageProps {
  *
  * @remarks
  * Lens is always rendered. Consumer CSS owns its dimensions, positioning, clipping, visibility,
- * shape, and presentation. InLens measures its border box and publishes translation variables.
+ * shape, and presentation. InLens measures its border box and publishes translation variables. All
+ * native HTML attributes and event handlers are forwarded to the wrapper.
  */
-export interface LensProps {
+export interface LensProps extends HTMLAttributes<HTMLElement> {
   /** Magnified content and any other consumer-owned viewport content. */
   children: ReactNode;
   /**
@@ -82,14 +72,6 @@ export interface LensProps {
    * @defaultValue `"div"`
    */
   as?: "div" | "span";
-  /** A consumer-owned class name passed unchanged to the wrapper. */
-  className?: string;
-  /**
-   * Consumer-owned inline styles passed to the wrapper.
-   *
-   * The `--inlens-*` namespace is reserved for InLens's read-only geometry outputs.
-   */
-  style?: CSSProperties;
 }
 
 /**
@@ -98,9 +80,10 @@ export interface LensProps {
  * @remarks
  * Panel is always rendered. Consumer CSS exclusively owns its dimensions, positioning,
  * visibility, clipping, and presentation. InLens measures its border box for magnification and
- * Tracker calculations but emits no Panel layout variables.
+ * Tracker calculations but emits no Panel layout variables. All native HTML attributes and event
+ * handlers are forwarded to the wrapper.
  */
-export interface PanelProps {
+export interface PanelProps extends HTMLAttributes<HTMLElement> {
   /** Magnified content and any other consumer-owned viewport content. */
   children: ReactNode;
   /**
@@ -109,12 +92,6 @@ export interface PanelProps {
    * @defaultValue `"div"`
    */
   as?: "div" | "aside";
-  /** A consumer-owned class name passed unchanged to the wrapper. */
-  className?: string;
-  /**
-   * Consumer-owned inline styles passed unchanged to the wrapper.
-   */
-  style?: CSSProperties;
 }
 
 /**
@@ -122,9 +99,10 @@ export interface PanelProps {
  *
  * @remarks
  * Tracker is always rendered and requires a Panel in the same Root. It throws after hydration
- * when no Panel exists. Consumer CSS owns its layout, visibility, and presentation.
+ * when no Panel exists. Consumer CSS owns its layout, visibility, and presentation. All native HTML
+ * attributes and event handlers are forwarded to the wrapper.
  */
-export interface TrackerProps {
+export interface TrackerProps extends HTMLAttributes<HTMLElement> {
   /** Optional consumer-owned content rendered inside the source overlay. */
   children?: ReactNode;
   /**
@@ -133,14 +111,6 @@ export interface TrackerProps {
    * @defaultValue `"div"`
    */
   as?: "div" | "span";
-  /** A consumer-owned class name passed unchanged to the tracker wrapper. */
-  className?: string;
-  /**
-   * Consumer-owned inline styles passed to the tracker wrapper.
-   *
-   * The `--inlens-*` namespace is reserved for InLens's read-only geometry outputs.
-   */
-  style?: CSSProperties;
 }
 
 /**
@@ -149,8 +119,9 @@ export interface TrackerProps {
  * @remarks
  * Magnified must be rendered inside a Lens or Panel. InLens renders its child unchanged and
  * publishes translation through `--inlens-x` and `--inlens-y`; consumer CSS applies the transform.
+ * All native HTML attributes and event handlers are forwarded to the wrapper.
  */
-export interface MagnifiedProps {
+export interface MagnifiedProps extends HTMLAttributes<HTMLElement> {
   /**
    * Exactly one consumer-owned element, rendered without inspection or cloning.
    *
@@ -163,12 +134,4 @@ export interface MagnifiedProps {
    * @defaultValue `"div"`
    */
   as?: "div" | "span";
-  /** A consumer-owned class name passed unchanged to the wrapper. */
-  className?: string;
-  /**
-   * Consumer-owned inline styles passed to the wrapper.
-   *
-   * The `--inlens-*` namespace is reserved for InLens's read-only geometry outputs.
-   */
-  style?: CSSProperties;
 }

@@ -1,7 +1,7 @@
 import { Component, createRef } from "react";
 import type { ErrorInfo, ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { InLens } from "../index";
 
@@ -135,6 +135,80 @@ describe("InLens compound components", () => {
     for (const slot of ["image", "lens", "tracker", "panel", "magnified"]) {
       expect(html).toContain(`data-inlens-slot="${slot}"`);
     }
+  });
+
+  it("forwards native HTML attributes and event handlers to every public wrapper", () => {
+    const mouseMovements: string[] = [];
+
+    render(
+      <InLens.Root
+        aria-label="root wrapper"
+        data-slot="root-wrapper"
+        onMouseMove={(event) => {
+          event.stopPropagation();
+          mouseMovements.push("root");
+        }}
+      >
+        <InLens.Image
+          aria-label="image wrapper"
+          data-slot="image-wrapper"
+          onMouseMove={(event) => {
+            event.stopPropagation();
+            mouseMovements.push("image");
+          }}
+        >
+          <img src="source.jpg" alt="Shoe" />
+        </InLens.Image>
+        <InLens.Lens
+          as="span"
+          aria-label="lens wrapper"
+          data-slot="lens-wrapper"
+          onMouseMove={(event) => {
+            event.stopPropagation();
+            mouseMovements.push("lens");
+          }}
+        >
+          <InLens.Magnified
+            aria-label="magnified wrapper"
+            data-slot="magnified-wrapper"
+            onMouseMove={(event) => {
+              event.stopPropagation();
+              mouseMovements.push("magnified");
+            }}
+          >
+            <img src="large.jpg" alt="" />
+          </InLens.Magnified>
+        </InLens.Lens>
+        <InLens.Tracker
+          aria-label="tracker wrapper"
+          data-slot="tracker-wrapper"
+          onMouseMove={(event) => {
+            event.stopPropagation();
+            mouseMovements.push("tracker");
+          }}
+        />
+        <InLens.Panel
+          as="aside"
+          aria-label="panel wrapper"
+          data-slot="panel-wrapper"
+          onMouseMove={(event) => {
+            event.stopPropagation();
+            mouseMovements.push("panel");
+          }}
+        >
+          Panel content
+        </InLens.Panel>
+      </InLens.Root>,
+    );
+
+    for (const slot of ["root", "image", "lens", "magnified", "tracker", "panel"]) {
+      const element = document.querySelector<HTMLElement>(`[data-inlens-slot="${slot}"]`)!;
+      expect(element).toHaveAttribute("aria-label", `${slot} wrapper`);
+      expect(element).toHaveAttribute("data-slot", `${slot}-wrapper`);
+      fireEvent.mouseMove(element);
+    }
+
+    expect(mouseMovements).toEqual(["root", "image", "lens", "magnified", "tracker", "panel"]);
   });
 
   it("keeps every visual part mounted while idle", () => {

@@ -15,14 +15,19 @@ import { InLens } from "@inlens/next";
 
 Every public component can render in a React Server Component.
 
-| Part        | Purpose                                    | Consumer props                                             |
-| ----------- | ------------------------------------------ | ---------------------------------------------------------- |
-| `Root`      | Measured source surface and behavior owner | `zoom`, `disabled`, `as`, `children`, `className`, `style` |
-| `Image`     | Verbatim source-element wrapper            | one element as `children`, `as`, `className`, `style`      |
-| `Lens`      | Pointer-following viewport                 | `children`, `as`, `className`, `style`                     |
-| `Panel`     | Consumer-positioned magnified viewport     | `children`, `as`, `className`, `style`                     |
-| `Tracker`   | Source overlay for the first Panel         | optional `children`, `as`, `className`, `style`            |
-| `Magnified` | Translated wrapper for duplicated content  | one element as `children`, `as`, `className`, `style`      |
+| Part        | Purpose                                    | InLens-specific props                |
+| ----------- | ------------------------------------------ | ------------------------------------ |
+| `Root`      | Measured source surface and behavior owner | `zoom`, `disabled`, `as`, `children` |
+| `Image`     | Verbatim source-element wrapper            | one element as `children`, `as`      |
+| `Lens`      | Pointer-following viewport                 | `children`, `as`                     |
+| `Panel`     | Consumer-positioned magnified viewport     | `children`, `as`                     |
+| `Tracker`   | Source overlay for the first Panel         | optional `children`, `as`            |
+| `Magnified` | Translated wrapper for duplicated content  | one element as `children`, `as`      |
+
+Every part also accepts the native HTML attributes and event handlers for its selected wrapper,
+including `className`, `style`, `id`, `role`, `aria-*`, `data-*`, and mouse or keyboard handlers.
+Refs are not forwarded. The `data-inlens-*` attributes and `--inlens-*` CSS properties are reserved
+for InLens runtime output.
 
 `zoom` defaults to `2` and must be finite and at least `1`. `disabled` defaults to `false`.
 

@@ -26,3 +26,6 @@ import { InLens } from "@inlens/react";
 
 Image and Magnified render their child verbatim. See the repository README for the responsive CSS example,
 complete variable contract, Panel and Tracker composition, and accessibility guidance.
+
+Every compound component forwards native attributes and event handlers to its wrapper, including
+`aria-*`, `data-*`, IDs, roles, mouse handlers, and keyboard handlers. Refs are not forwarded.

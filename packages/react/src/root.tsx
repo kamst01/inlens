@@ -36,15 +36,14 @@ export function Root({
   disabled = false,
   as = "div",
   children,
-  className,
-  style,
+  ...nativeProps
 }: RootProps): ReactElement {
   if (!Number.isFinite(zoom) || zoom < 1) {
     throw new RangeError(`zoom must be finite and at least 1; received ${String(zoom)}`);
   }
 
   return (
-    <Runtime zoom={zoom} disabled={disabled} as={as} className={className} style={style}>
+    <Runtime zoom={zoom} disabled={disabled} as={as} {...nativeProps}>
       {children}
     </Runtime>
   );

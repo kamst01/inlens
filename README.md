@@ -66,16 +66,18 @@ React, React DOM, and (for `@inlens/next`) Next.js are peer dependencies. The pa
 `InLens` is the primary namespace. Every part is also a named export, and every public component can be
 rendered from a Server Component.
 
-- `Root`: optional behavioral `zoom` (default `2`) and `disabled`, plus `as="div|figure"`, `children`,
-  `className`, and consumer-owned `style`.
-- `Image`: one verbatim `ReactElement`, with `as="div|span"`, `className`, and `style`.
-- `Lens`: CSS-sized pointer-following viewport with `as="div|span"`, `children`, `className`, and `style`.
-- `Panel`: CSS-sized and CSS-positioned viewport with `as="div|aside"`, `children`, `className`, and
-  `style`.
-- `Tracker`: source overlay calculated from the first Panel in DOM order, with `as="div|span"`, optional
-  `children`, `className`, and `style`. A Tracker without a Panel always throws after client discovery.
-- `Magnified`: one verbatim `ReactElement`, with `as="div|span"`, `className`, and `style`. It belongs
-  inside a Lens or Panel.
+- `Root`: optional behavioral `zoom` (default `2`) and `disabled`, plus `as="div|figure"` and `children`.
+- `Image`: one verbatim `ReactElement`, with `as="div|span"`.
+- `Lens`: CSS-sized pointer-following viewport with `as="div|span"` and `children`.
+- `Panel`: CSS-sized and CSS-positioned viewport with `as="div|aside"` and `children`.
+- `Tracker`: source overlay calculated from the first Panel in DOM order, with `as="div|span"` and
+  optional `children`. A Tracker without a Panel always throws after client discovery.
+- `Magnified`: one verbatim `ReactElement`, with `as="div|span"`. It belongs inside a Lens or Panel.
+
+Every compound component also accepts the native HTML attributes and event handlers for its selected
+wrapper, including `className`, `style`, `id`, `role`, `aria-*`, `data-*`, and mouse or keyboard
+handlers. Refs are not forwarded. The `data-inlens-*` attributes and `--inlens-*` CSS properties are
+reserved for InLens runtime output.
 
 All visual parts stay mounted in both interaction states. Use Root's `data-inlens-state="idle|active"`
 in CSS when you want to change visibility. If a Tracker is conditionally rendered, its Panel must be in

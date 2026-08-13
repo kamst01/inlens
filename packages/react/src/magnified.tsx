@@ -22,17 +22,11 @@ import type { MagnifiedProps } from "./types/props";
  *
  * @see {@link MagnifiedProps}
  */
-export function Magnified({
-  children,
-  as = "div",
-  className,
-  style,
-}: MagnifiedProps): ReactElement {
+export function Magnified({ children, as = "div", ...nativeProps }: MagnifiedProps): ReactElement {
   return createElement(
     as,
     {
-      className,
-      style,
+      ...nativeProps,
       "data-inlens-slot": "magnified",
     },
     children,
