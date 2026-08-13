@@ -1,4 +1,3 @@
-import { page } from "vitest/browser";
 import { render } from "vitest-browser-react";
 import { describe, expect, it } from "vitest";
 import { InLens } from "../index";
@@ -39,6 +38,10 @@ function movePointer(
   );
 }
 
+async function waitForPointerFrame(): Promise<void> {
+  await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+}
+
 describe("InLens in a real browser", () => {
   it("measures and activates a compound composition without an application host", async () => {
     await render(
@@ -67,7 +70,7 @@ describe("InLens in a real browser", () => {
     const magnified = getSlots("magnified");
 
     await expect.poll(() => property(root, "--inlens-root-width")).toBe("500px");
-    await page.elementLocator(root).hover({ position: { x: 250, y: 200 } });
+    movePointer(root, 250, 200);
 
     await expect.poll(() => root.dataset.inlensState).toBe("active");
     expect(property(root, "--inlens-root-height")).toBe("400px");
@@ -142,14 +145,15 @@ describe("InLens in a real browser", () => {
     const tracker = getSlot("tracker");
     await expect.poll(() => property(root, "--inlens-root-width")).toBe("400px");
 
-    const rootLocator = page.elementLocator(root);
-    await rootLocator.hover({ position: { x: 1, y: 1 } });
+    movePointer(root, 1, 1);
+    await expect.poll(() => root.dataset.inlensState).toBe("active");
     await expect.poll(() => numberProperty(tracker, "--inlens-x")).toBeCloseTo(0, 1);
     expect(numberProperty(tracker, "--inlens-y")).toBeCloseTo(0, 1);
     expect(property(tracker, "--inlens-width")).toBe("100px");
     expect(property(tracker, "--inlens-height")).toBe("50px");
 
-    await rootLocator.hover({ position: { x: 399, y: 299 } });
+    movePointer(root, 399, 299, "pointermove");
+    await waitForPointerFrame();
     await expect.poll(() => numberProperty(tracker, "--inlens-x")).toBeCloseTo(300, 1);
     expect(numberProperty(tracker, "--inlens-y")).toBeCloseTo(250, 1);
   });
