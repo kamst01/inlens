@@ -1,5 +1,15 @@
 # @inlens/react
 
+## 0.2.0
+
+### Minor Changes
+
+- 2cd28f7: Forward native HTML attributes and event handlers from every InLens compound component to its wrapper element.
+
+### Patch Changes
+
+- @inlens/core@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes

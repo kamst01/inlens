@@ -1,6 +1,6 @@
 {
   "name": "@inlens/next",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "RSC-safe Next.js entry for InLens",
   "keywords": [
     "image-magnifier",
@@ -43,7 +43,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
-    "@inlens/react": "0.1.0"
+    "@inlens/react": "0.2.0"
   },
   "peerDependencies": {
     "next": ">=15.0.0 <17.0.0",

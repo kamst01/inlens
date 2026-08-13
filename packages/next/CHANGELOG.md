@@ -1,5 +1,12 @@
 # @inlens/next
 
+## 0.2.0
+
+### Patch Changes
+
+- Updated dependencies [2cd28f7]
+  - @inlens/react@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
