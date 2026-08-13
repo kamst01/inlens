@@ -1,6 +1,6 @@
 {
   "name": "@inlens/react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Production-quality compound React image magnifier components",
   "keywords": [
     "compound-components",
@@ -44,7 +44,7 @@
     "test": "vitest run --config ../../vitest.config.ts ../../packages/react/src/__tests__"
   },
   "dependencies": {
-    "@inlens/core": "0.1.0"
+    "@inlens/core": "0.2.0"
   },
   "peerDependencies": {
     "react": ">=18.3.0 <20.0.0",
